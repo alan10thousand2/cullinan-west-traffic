@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>匯璽禮賓司 · 交通設施全覽 | Cullinan West Concierge</title>
+    <!-- Font Awesome 6 (免費圖標庫) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          "Roboto",
+          "Noto Sans TC",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Helvetica Neue",
+          sans-serif;
+        background: #f0f2f5;
+        color: #1e2a3e;
+        line-height: 1.45;
+      }
+
+      /* 整體佈局 Flex，滿版高度 */
+      .app-wrapper {
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      /* ========= ASIDE 側邊欄選單 ========= */
+      aside {
+        width: 280px;
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        border-right: 1px solid #e2e8f0;
+        box-shadow: 4px 0 12px rgba(0, 0, 0, 0.02);
+        overflow-y: auto;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+        z-index: 10;
+      }
+
+      .aside-header {
+        padding: 28px 20px 20px 24px;
+        border-bottom: 1px solid #e9edf2;
+        margin-bottom: 12px;
+      }
+
+      .aside-header h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, #b87333, #8b5a2b);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: -0.3px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .aside-header p {
+        font-size: 0.8rem;
+        color: #5b6e8c;
+        margin-top: 8px;
+        border-left: 3px solid #b87333;
+        padding-left: 12px;
+      }
+
+      .menu-list {
+        list-style: none;
+        padding: 0 12px 24px 12px;
+      }
+
+      .menu-item {
+        margin: 6px 0;
+        border-radius: 14px;
+        transition: all 0.2s;
+      }
+
+      .menu-btn {
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        border: none;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #2c3e50;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: inherit;
+      }
+
+      .menu-btn i {
+        width: 24px;
+        font-size: 1.2rem;
+        color: #8f9bb3;
+        transition: color 0.2s;
+      }
+
+      .menu-btn:hover {
+        background: #eef2ff;
+        color: #b87333;
+      }
+      .menu-btn:hover i {
+        color: #b87333;
+      }
+
+      .menu-item.active .menu-btn {
+        background: #e9e3d5;
+        color: #7a4c1a;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      }
+      .menu-item.active .menu-btn i {
+        color: #b87333;
+      }
+
+      /* ========= MAIN 內容區域 ========= */
+      main {
+        flex: 1;
+        background: #fefefe;
+        overflow-y: auto;
+        padding: 28px 36px;
+      }
+
+      .content-card {
+        max-width: 1280px;
+        margin: 0 auto;
+        animation: fadeSlideUp 0.3s ease-out;
+      }
+
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1e293b;
+        border-left: 6px solid #b87333;
+        padding-left: 20px;
+        letter-spacing: -0.2px;
+      }
+
+      .section-sub {
+        color: #5b6e8c;
+        margin-bottom: 28px;
+        margin-top: 8px;
+        padding-left: 26px;
+        font-size: 0.9rem;
+      }
+
+      .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .info-block {
+        background: #ffffff;
+        border-radius: 28px;
+        box-shadow:
+          0 8px 20px rgba(0, 0, 0, 0.02),
+          0 2px 4px rgba(0, 0, 0, 0.02);
+        border: 1px solid #edf2f7;
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+
+      .info-header {
+        background: #faf9fc;
+        padding: 18px 28px;
+        border-bottom: 1px solid #ecf3fa;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .info-header i {
+        font-size: 1.7rem;
+        color: #b87333;
+      }
+      .info-header h3 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .info-body {
+        padding: 20px 28px;
+        font-size: 1rem;
+      }
+
+      .info-body p {
+        margin-bottom: 12px;
+      }
+
+      .highlight {
+        background: #fef7e6;
+        padding: 12px 18px;
+        border-radius: 20px;
+        border-left: 4px solid #d4a373;
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #eef2ff;
+        padding: 6px 14px;
+        border-radius: 40px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #2c4c6e;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+      }
+      th,
+      td {
+        padding: 12px 8px;
+        text-align: left;
+        border-bottom: 1px solid #e9ecef;
+      }
+      th {
+        background-color: #f8f9fc;
+        font-weight: 600;
+        color: #2c3e66;
+      }
+
+      .contact-card {
+        background: #f1f5f9;
+        border-radius: 20px;
+        padding: 16px 20px;
+        margin: 14px 0;
+      }
+
+      footer {
+        margin-top: 48px;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #95a5a6;
+        border-top: 1px solid #eef2f5;
+        padding-top: 24px;
+      }
+
+      /* 響應式 */
+      @media (max-width: 780px) {
+        .app-wrapper {
+          flex-direction: column;
+        }
+        aside {
+          width: 100%;
+          border-right: none;
+          border-bottom: 1px solid #e2e8f0;
+          max-height: 300px;
+          overflow-y: auto;
+        }
+        main {
+          padding: 20px 18px;
+        }
+        .section-title {
+          font-size: 1.6rem;
+        }
+        .info-body {
+          padding: 16px 18px;
+        }
+      }
+
+      /* 自訂捲軸 */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <!-- 側邊欄選單 aside -->
+      <aside>
+        <div class="aside-header">
+          <h2><i class="fas fa-building"></i> 匯璽 · 禮賓司</h2>
+          <p>Cullinan West Concierge<br />交通・設施・寵物共享</p>
+        </div>
+        <ul class="menu-list" id="menu-list">
+          <!-- 動態由JS產生選單，也可靜態寫入但動態確保順序一致 -->
+        </ul>
+      </aside>
+
+      <main id="main-content">
+        <!-- 動態內容將顯示於此 -->
+        <div class="content-card" id="dynamicContent">
+          <div
+            class="info-block"
+            style="text-align: center; padding: 48px 20px"
+          >
+            <i
+              class="fas fa-compass"
+              style="font-size: 48px; color: #b87333; margin-bottom: 20px"
+            ></i>
+            <h2>歡迎，禮賓司同仁</h2>
+            <p>請從左側選單點選項目，查看詳細交通、設施及位置指引</p>
+            <div class="highlight">
+              ✨ 所有資訊均包含相對位置，方便快速引導住戶 ✨
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // ======================= 完整資料庫（每個分類詳細內容＋位置指引）=======================
+      const sectionsData = {
+        mtr: {
+          title: "🚇 港鐵資訊 · 南昌站",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-subway"></i><h3>港鐵南昌站 (Nam Cheong Station)</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 相對位置：</strong> 匯璽基座與 <strong>V Walk 商場 L2 層</strong> 無縫連接，經商場直達港鐵 <strong>南昌站 A2 出口</strong>。從屋苑各座步行至閘機約 1~2 分鐘，全程室內有蓋，風雨無阻。</p>
+                        <p><strong>🚆 雙線交匯：</strong> <span class="badge">東涌線</span> <span class="badge">屯馬線</span> 前往香港站僅 3 站、尖東站 4 站、柯士甸站 1 站（高鐵西九龍站）。</p>
+                        <p><strong>🚪 常用出口：</strong> A2 出口連接 V Walk 商場與住宅通道；A1 / D1 出口可達富昌邨、深旺道行人天橋。</p>
+                        <div class="highlight"><i class="fas fa-map-pin"></i> 禮賓司筆記： 引導住戶由「匯璽住宅大堂 → V Walk L2 → 南昌站A2入口」，全程有冷氣且無需過馬路，最便捷。</div>
+                    </div>
+                </div>
+            `,
+        },
+        bus: {
+          title: "🚌 巴士資訊 · 深旺道站點",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-bus"></i><h3>主要巴士站：南昌站／富昌邨</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 相對位置：</strong> 巴士站位於匯璽外 <strong>深旺道 (Sham Mong Road)</strong> 兩側，由屋苑主要出入口步行約 2 分鐘可達。鄰近「富昌邨」及「南昌邨」巴士站。</p>
+                        <p><strong>🚍 途經路線：</strong> 多條九巴、城巴、新巴路線連貫港九新界（例如 118, 701, 702, 971, 12A, 18, 36A 等），可達旺角、長沙灣、深水埗、紅磡、鰂魚涌及機場巴士 A21、E21。</p>
+                        <p><strong>🚏 附近樞紐：</strong> 深水埗（東京街）巴士總站步行約 6 分鐘，提供更多轉乘選擇。</p>
+                        <div class="highlight"><i class="fas fa-location-dot"></i> 指引住戶：出屋苑大門後往深旺道方向，過斑馬線即可見巴士站候車亭；建議利用手機應用程式「新城巴」查詢即時班次。</div>
+                    </div>
+                </div>
+            `,
+        },
+        minibus: {
+          title: "🚐 小巴資訊 · 專線綠Van",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-van-shuttle"></i><h3>專線小巴 · 南昌站及深旺道</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 相對位置：</strong> 小巴站集中於 <strong>深旺道「南昌站」公共小巴停車處</strong>（V Walk 對出），以及富昌邨迴旋處附近。</p>
+                        <p><strong>🟢 主要路線：</strong> 10A/10M (往旺角)、75 (往長沙灣/青山道)、44A (往長沙灣廣場) 、81K (往海麗邨) 等。班次頻密，適合短途街市及學校通勤。</p>
+                        <p><strong>📌 指引：</strong> 從匯璽入口往深旺道朝東京街方向步行約3分鐘可見綠色小巴站牌，標示清晰。</p>
+                        <div class="highlight">💡 小提醒： 小巴多為現金或八達通，部分路線不設企位，繁忙時間建議提早候車。</div>
+                    </div>
+                </div>
+            `,
+        },
+        taxi: {
+          title: "📞 電召的士 · 平台/熱線",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-taxi"></i><h3>電召的士 最快召車方式</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 匯璽上車點：</strong> 屋苑設有「上落客區」位於深旺道入口大堂外，亦可在 V Walk 商場 G 層上落客區候車。</p>
+                        <table>
+                            <tr><th>平台 / 熱線</th><th>服務特色</th></tr>
+                            <tr><td>📱 HKTaxi / 85飛的Taxi</td><td>App 即時叫車，評分機制、電子支付</td></tr>
+                            <tr><td>📞 8100-2703 (市區的士24h)</td><td>傳統電召，適合長者或不擅App住戶</td></tr>
+                            <tr><td>📱 WhatsApp 6680 7755</td><td>專人回覆，可預約及一口價過境</td></tr>
+                            <tr><td>💰 一口價服務 6680 7755</td><td>已包隧道費+行李費 (機場/深圳灣/落馬洲)</td></tr>
+                        </table>
+                        <div class="highlight"><i class="fas fa-clock"></i> 禮賓司建議： 繁忙時段可同時使用 HKTaxi 及 WhatsApp 預約，最快5分鐘內抵達。</div>
+                    </div>
+                </div>
+            `,
+        },
+        tow: {
+          title: "🛻 拖車資訊 · 道路救援",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-wrench"></i><h3>24小時拖車／道路救援</h3></div>
+                    <div class="info-body">
+                        <p><strong>🚨 緊急拖車熱線：</strong> <span class="badge">香港汽車會(AA) 9080 9843</span> <span class="badge">一般求救 999</span></p>
+                        <p><strong>📍 車輛停泊位置提醒：</strong> 匯璽停車場入口位於<strong>深旺道</strong>，如住戶車輛在地下停車場故障，可先通知禮賓司協助安排拖車進入地庫（注意高度限制 2.2米）。</p>
+                        <p><strong>📌 拖車流程：</strong> 致電熱線後提供車牌、位置（例：深旺道28號匯璽停車場B2層），拖車約20-40分鐘到達。</p>
+                        <div class="highlight">🔧 備註： 匯璽停車場設有上落貨區，拖車公司可使用該區域進行簡易救援。建議住戶預先儲存救援號碼。</div>
+                    </div>
+                </div>
+            `,
+        },
+        crossBorder: {
+          title: "🚌 過境巴士 · 班次資訊",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-bus"></i><h3>跨境直通巴士 前往皇崗/深圳灣</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 從匯璽出發最佳路徑：</strong> 搭港鐵至 <strong>柯士甸站 (1個站)</strong> → 步行至柯士甸道跨境巴士總站 / 或往旺角鴉蘭街轉乘。</p>
+                        <table>
+                            <tr><th>上車點</th><th>目的地</th><th>班次</th></tr>
+                            <tr><td>旺角鴉蘭街</td><td>皇崗口岸</td><td>24小時「跨境全日通」15-30分鐘一班</td></tr>
+                            <tr><td>柯士甸道總站</td><td>皇崗口岸</td><td>24小時「跨境快線」約20分一班</td></tr>
+                            <tr><td>太子/油麻地/灣仔</td><td>深圳灣口岸</td><td>06:00-23:00，約30分鐘一班</td></tr>
+                        </table>
+                        <p><strong>🎫 班次備註：</strong> 建議住戶下載「全日通巴士」App即時查閱，或經 V Walk 地面步行至南昌站乘搭屯馬線直達柯士甸站（約6分鐘車程）。</p>
+                        <div class="highlight">📍 禮賓司貼士： 也可選乘永東巴士往深圳灣，提供點對點服務，需提前一天預約。</div>
+                    </div>
+                </div>
+            `,
+        },
+        pet: {
+          title: "🐕 寵物配套設施 · 友善園區",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-paw"></i><h3>寵物共享設施及公園</h3></div>
+                    <div class="info-body">
+                        <p><strong>🏡 匯璽寵物政策：</strong> 屋苑屬「寵物天地」設計，住戶可飼養寵物，並設有寵物活動群組。</p>
+                        <p><strong>🛍️ V Walk 商場：</strong> 全場 <strong>寵物友善</strong>，歡迎牽繩寵物內進（需使用寵物車或手抱）。</p>
+                        <p><strong>🌳 長沙灣寵物公園（推薦）：</strong> 從匯璽步行約<strong>15分鐘</strong>（沿深旺道往興華街西方向），園區分大狗區及小狗區，設有飲水器及清潔用品。</p>
+                        <div class="highlight"><i class="fas fa-dog"></i> 前往指引： 深旺道右轉入興華街西，經深水埗公園旁即可抵達長沙灣寵物公園，24小時開放，夜間有照明。</div>
+                        <p><strong>📌 注意： 平台花園2樓寵物共享區</strong> 目前尚未正式開放，請引導住戶使用長沙灣寵物公園或 V Walk 商場散步。</p>
+                    </div>
+                </div>
+            `,
+        },
+        motorcycle: {
+          title: "🏍️ 電單車車位 · 停車場(深旺道入口)",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-motorcycle"></i><h3>電單車車位 專區指引</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 停車場入口位置：</strong> <strong>深旺道 (Sham Mong Road) 匯璽車輛入口</strong>，入口設有獨立車道及對講機。</p>
+                        <p><strong>🛵 電單車車位分布：</strong> 住宅停車場 B1 層及 B2 層指定區域（各期數量共約44個或6個不等，視樓層而定）。車位設有足夠間距及落車鎖。</p>
+                        <p><strong>📋 進入方式：</strong> 住戶需以八達通/遙控進出，月租車位需預先登記；訪客電單車可向禮賓司查詢臨時泊位。</p>
+                        <div class="highlight"><i class="fas fa-flag-checkered"></i> 引導住戶： 由深旺道入口駛入後，右轉直行可看見「電單車專用區」告示，靠右側車道泊位。</div>
+                    </div>
+                </div>
+            `,
+        },
+        bicycle: {
+          title: "🚲 單車車位 · 停車場區域 (免費)",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-bicycle"></i><h3>單車泊位區 · V Walk 停車場 3樓</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 相對位置：</strong> 單車車位位於 <strong>V Walk 商場 停車場 3樓</strong>（經商場升降機或深旺道停車場入口進入）。</p>
+                        <p><strong>💰 收費：</strong> <span class="badge" style="background:#e2f3e4;">免費！</span> 提供予匯璽住戶及公眾使用，設有單車泊架及監控。</p>
+                        <p><strong>🗺️ 詳細路線：</strong> 由匯璽住宅地下電梯到 V Walk L2 → 轉乘停車場升降機至 3/F → 依「單車停泊區」指示牌前往，約步行4分鐘。</p>
+                        <div class="highlight">🚴 禮賓司筆記： 市區難得免費室內單車位，鼓勵住戶善用，避免單車阻塞走火通道。</div>
+                    </div>
+                </div>
+            `,
+        },
+        ev_charging: {
+          title: "⚡ 電動車充電站 · Tesla超級充電站",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-charging-station"></i><h3>電動車充電設施 (V3 + 快速)</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 Tesla 超級充電站 (V3 Supercharger)</strong>：位於 <strong>V Walk 停車場 3樓 車位 C3085 - C3087</strong>，功率 250kW，支援 Model S/3/X/Y。自2025年5月起按新收費模式 (以kWh計費)。</p>
+                        <p><strong>🔌 The Point 快速充電站 (60kW)</strong>：同樣位於 V Walk 停車場 3/F，CCS2 插頭適用各大品牌電動車（現代、平治、BMW等）。</p>
+                        <p><strong>🏢 匯璽住宅停車場：</strong> 設有一般中速充電樁 (7kW)，供月租車位使用，需向管理處登記啟動。</p>
+                        <div class="highlight"><i class="fas fa-map-marker-alt"></i> 給業戶的引導： 深旺道入口入閘後沿車道前往 3樓（屋苑停車場相連），見到 Tesla 專用標誌即為 V3 充電站，車位編號清晰。充電前請用 Tesla App 解鎖地鎖。</div>
+                        <p><strong>📞 Tesla 支援熱線： +852 3974 0251</strong>  The Point 充電站支援八達通或充電APP付款。</p>
+                    </div>
+                </div>
+            `,
+        },
+        podium: {
+          title: "🌸 平台花園 · 2樓 (休憩空間・寵物共享)",
+          content: `
+                <div class="info-block">
+                    <div class="info-header"><i class="fas fa-tree"></i><h3>2/F 平台花園 & 寵物共享概念</h3></div>
+                    <div class="info-body">
+                        <p><strong>📍 位置：</strong> V Walk 商場 2樓戶外平台 (連接港鐵南昌站A2出口旁)。</p>
+                        <p><strong>🌿 設計用途：</strong> 園藝休憩區、座椅及綠化步道，原規劃為「寵物共享」場域，但目前 <strong>尚未正式對外開放</strong>，請住戶暫時勿攜寵物進入。</p>
+                        <p><strong>🪑 替代休憩點：</strong> 建議住戶使用 V Walk 商場中庭公共座位或前往深水埗公園（步行7分鐘）散步。</p>
+                        <div class="highlight">📌 最新公告： 開放日期將由管理處另行通知。現階段寵物活動仍推薦長沙灣寵物公園，安全且設施完備。</div>
+                        <p><strong>👨‍💼 禮賓司指引：</strong> 2樓花園仍可作為一般住戶休憩，但寵物需繫繩且不可落地。如有疑問可致電管理處查詢。</p>
+                    </div>
+                </div>
+            `,
+        },
+      };
+
+      // 定義選單順序（依據原始需求排序）
+      const menuOrder = [
+        { id: "mtr", label: "🚇 港鐵資訊", icon: "fas fa-subway" },
+        { id: "bus", label: "🚌 巴士資訊", icon: "fas fa-bus" },
+        { id: "minibus", label: "🚐 小巴資訊", icon: "fas fa-van-shuttle" },
+        { id: "taxi", label: "📞 電召的士", icon: "fas fa-taxi" },
+        { id: "tow", label: "🛻 拖車資訊", icon: "fas fa-wrench" },
+        { id: "crossBorder", label: "🚌 過境巴士・班次", icon: "fas fa-globe" },
+        { id: "pet", label: "🐕 寵物配套設施", icon: "fas fa-paw" },
+        {
+          id: "motorcycle",
+          label: "🏍️ 電單車車位 (深旺道入口)",
+          icon: "fas fa-motorcycle",
+        },
+        {
+          id: "bicycle",
+          label: "🚲 單車車位 (停車場區域)",
+          icon: "fas fa-bicycle",
+        },
+        {
+          id: "ev_charging",
+          label: "⚡ 電動車充電站 (Tesla超充)",
+          icon: "fas fa-charging-station",
+        },
+        {
+          id: "podium",
+          label: "🌿 平台花園-2樓 (休憩/寵物)",
+          icon: "fas fa-leaf",
+        },
+      ];
+
+      // 動態建立選單
+      const menuList = document.getElementById("menu-list");
+      function buildMenu() {
+        menuList.innerHTML = "";
+        menuOrder.forEach((item) => {
+          const li = document.createElement("li");
+          li.className = "menu-item";
+          li.dataset.id = item.id;
+          const button = document.createElement("button");
+          button.className = "menu-btn";
+          button.innerHTML = `<i class="${item.icon}"></i><span>${item.label}</span>`;
+          button.addEventListener("click", () => {
+            setActiveMenuItem(item.id);
+            renderMainContent(item.id);
+          });
+          li.appendChild(button);
+          menuList.appendChild(li);
+        });
+      }
+
+      function setActiveMenuItem(activeId) {
+        const allItems = document.querySelectorAll(".menu-item");
+        allItems.forEach((item) => {
+          if (item.dataset.id === activeId) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      }
+
+      function renderMainContent(sectionId) {
+        const section = sectionsData[sectionId];
+        if (!section) return;
+        const mainDiv = document.getElementById("dynamicContent");
+        mainDiv.innerHTML = `
+            <div class="content-card">
+                <div class="section-title">${section.title}</div>
+                <div class="section-sub"><i class="fas fa-location-dot"></i> 業戶位置指引 · 實用資訊</div>
+                <div class="info-grid">
+                    ${section.content}
+                </div>
+                <footer>
+                    <i class="fas fa-regular fa-building"></i> 匯璽禮賓司 整理 · 資料即時更新 | 如住戶需要進一步協助，請致電 24h 服務中心
+                </footer>
+            </div>
+        `;
+      }
+
+      // 初始化顯示第一個（港鐵資訊）
+      function init() {
+        buildMenu();
+        if (menuOrder.length > 0) {
+          const defaultId = menuOrder[0].id;
+          setActiveMenuItem(defaultId);
+          renderMainContent(defaultId);
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
